@@ -21,7 +21,7 @@
 				<Logo />
 			</div>
 
-			<div class="">NVAULT</div>
+			<div class="text-trim">NVAULT</div>
 		</div>
 	</div>
 </footer>
@@ -33,7 +33,7 @@
 		background-color: #000;
 		color: white;
 		padding: var(--space-xl) var(--space-m);
-		gap: 24px;
+		gap: var(--space-l);
 
 		padding-top: var(--space-xl);
 	}
@@ -61,6 +61,7 @@
 	.copyright__text {
 		text-align: right;
 		border-bottom: 5px solid white;
+		margin-bottom: var(--space-m);
 	}
 
 	.copyright__brand {

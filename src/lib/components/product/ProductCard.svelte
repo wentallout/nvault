@@ -1,6 +1,6 @@
 <script>
 	let {
-		productLink = '/',
+		productLink = '/products/1',
 		productTitle = 'Shape',
 		productImg = '/images/product-1.avif',
 		productPrice = 100,
@@ -8,15 +8,17 @@
 	} = $props();
 </script>
 
-<a href={productLink} class="product">
-	<div class="product__thumbnail">
-		<img src={productImg} alt="image of {productTitle}" />
-	</div>
+<a href={productLink}>
+	<article class="product">
+		<div class="product__thumbnail">
+			<img src={productImg} alt="image of {productTitle}" />
+		</div>
 
-	<div class="product__info">
-		<h3>{productTitle}</h3>
-		<p class="info__price">{productPrice} {currency}</p>
-	</div>
+		<div class="product__info">
+			<h3>{productTitle}</h3>
+			<p class="info__price">{productPrice} {currency}</p>
+		</div>
+	</article>
 </a>
 
 <style>
@@ -85,13 +87,12 @@
 	@media (min-width: 992px) {
 		.product__info {
 			font-size: var(--step-3);
-			padding: var(--space-m) var(--space-l);
+			padding: var(--space-l) var(--space-xl);
 		}
 	}
 
 	.info__price {
 		font-size: var(--step-1);
 		font-family: var(--font-normal);
-		
 	}
 </style>

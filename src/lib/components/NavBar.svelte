@@ -1,11 +1,12 @@
 <header>
 	<nav class="nav">
 		<div class="nav__left">
-			<a href="/" class="left__brand">NVAULT</a>
+			<a href="/" class="left__brand text-trim">NVAULT</a>
 		</div>
 		<div class="nav__mid">Khoa Nguyen / NFT Shop ©2025</div>
 		<div class="nav__right">
-			<a class="nav__link" href="/shop">Shop</a>
+			<a class="nav__link" href="/">Home</a>
+			<a class="nav__link" href="/products">Shop</a>
 			<a class="nav__link" href="/about">About</a>
 			<a class="nav__link" href="/contact">Contact</a>
 		</div>
@@ -77,7 +78,9 @@
 		background-color: white;
 		border-bottom: 5px solid #000;
 		height: 100%;
-		display: grid;
+		display: flex;
+		flex-direction: row;
+		gap: var(--space-m);
 		grid-template-columns: 1fr;
 		align-items: center;
 		justify-content: end;

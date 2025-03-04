@@ -1,30 +1,30 @@
 <script>
 	import PageTitle from '$lib/components/PageTitle.svelte';
-	import ProductCard from '$lib/components/ProductCard.svelte';
+	import ProductCard from '$lib/components/product/ProductCard.svelte';
 
 	let products = [
 		{
 			id: 1,
 			productTitle: 'watermelon 007',
 			productImg: '/images/nft-1.png',
-			productLink: '/'
+			productLink: '/products/1'
 		},
 		{
 			id: 2,
 			productTitle: 'sneaker 003',
 			productImg: '/images/nft-2.png',
-			productLink: '/'
+			productLink: '/products/1'
 		},
 		{
 			id: 3,
 			productTitle: 'icecream 001',
 			productImg: '/images/nft-3.png',
-			productLink: '/'
+			productLink: '/products/1'
 		}
 	];
 </script>
 
-<PageTitle pageTitle="Shop" />
+<PageTitle pageTitle="NFTs" />
 
 <section class="products">
 	{#each products as product}
