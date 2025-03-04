@@ -65,10 +65,11 @@
 
 	.detail__head {
 		display: flex;
-		flex-direction: row;
-		align-items: center;
+		flex-direction: column;
+		align-items: start;
 		justify-content: space-between;
 	}
+
 	.detail__price {
 		font-variant-numeric: tabular-nums;
 		font-family: var(--font-fancy);
@@ -77,6 +78,7 @@
 
 	.detail__desc {
 		max-width: 65ch;
+		margin-bottom: var(--space-m);
 	}
 
 	.detail__btn {

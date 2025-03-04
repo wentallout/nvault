@@ -31,8 +31,7 @@
 		<ProductCard
 			productTitle={product.productTitle}
 			productImg={product.productImg}
-			productLink={product.productLink}
-		/>
+			productLink={product.productLink} />
 	{/each}
 </section>
 

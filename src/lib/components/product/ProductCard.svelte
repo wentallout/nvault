@@ -29,7 +29,7 @@
 		grid-template-rows: subgrid;
 		grid-template-columns: 1fr 1fr;
 		overflow: hidden;
-		transition: all 0.3s ease-in-out;
+		transition: var(--transition-bounce);
 	}
 
 	.product:hover {
@@ -57,7 +57,7 @@
 		& img {
 			display: block;
 			object-fit: cover;
-			transition: 0.3s all ease-in-out;
+			transition: var(--transition-bounce);
 			overflow: visible;
 		}
 	}

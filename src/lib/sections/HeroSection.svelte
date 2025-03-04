@@ -1,16 +1,18 @@
 <script>
+	import { ArrowRight } from '$lib/components/icons';
 	import HeroPopularToken from './HeroPopularToken.svelte';
 </script>
 
 <section class="hero">
 	<div class="hero__cta">
-		<div class="cta__title">CRYPTO <br /> TOKEN</div>
+		<div class="cta__title">High quality NFTs for sale</div>
 		<p class="cta__desc">
 			A unique digital token that creates a tangible and intangible asset that acts as collector's
 			cards, virtual real estate and design works.
 		</p>
-		<a href="/products">
-			<button class="cta__btn btn">View products</button>
+		<a class="cta__btn btn" href="/products">
+			<p>View products</p>
+			<ArrowRight />
 		</a>
 		<div class="cta__img">
 			<img class="" src="/images/nft-1.avif" alt="" />
@@ -100,5 +102,7 @@
 		color: var(--background-50);
 
 		margin-bottom: var(--space-2xl);
+		width: 100%;
+		display: flex;
 	}
 </style>

@@ -5,7 +5,16 @@
 	font-size: var(--step-2);
 	text-transform: uppercase;
 	display: flex;
-	justify-content: end;
 	align-items: center;
 	padding-inline: var(--space-2xl);
+	gap: var(--space-s);
+	transition: var(--transition-bounce);
+}
+
+.btn:hover {
+	--primary-500: var(--primary-600);
+}
+
+.btn:active {
+	--primary-500: var(--primary-400);
 }

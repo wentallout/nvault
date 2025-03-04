@@ -68,7 +68,7 @@
 		justify-content: space-between;
 		align-items: center;
 		border-right: var(--brand-border);
-		padding: var(--space-m) var(--space-m);
+		padding: var(--space-s) var(--space-m);
 		background-color: white;
 		height: 100%;
 		border-bottom: var(--brand-border);
@@ -94,7 +94,7 @@
 		border-right: var(--brand-border);
 		border-bottom: 5px solid #000;
 		background-color: white;
-		padding: var(--space-m) var(--space-m);
+		padding: var(--space-s) var(--space-m);
 		height: 100%;
 		display: none;
 	}
@@ -109,7 +109,7 @@
 	}
 
 	.nav__right {
-		padding: var(--space-m) var(--space-m);
+		padding: var(--space-s) var(--space-m);
 		background-color: white;
 		border-bottom: 5px solid #000;
 		height: 100%;
@@ -151,7 +151,7 @@
 		justify-content: flex-start;
 		align-items: end;
 		z-index: 9999;
-		transition: transform 0.3s ease-in-out;
+		transition: var(--transition-bounce);
 		padding: var(--space-l) var(--space-m);
 		text-transform: uppercase;
 	}

@@ -8,10 +8,7 @@
 <section class="contact">
 	<div class="contact__title">
 		<h2 class="text-trim">Send Message</h2>
-		<p>
-			If you have a question, send it to us and we will reply to you as soon as possible. Please
-			check and view our collections gallery with detailed descriptions.
-		</p>
+		<p>If you have a question, send it to us and we will reply to you as soon as possible.</p>
 	</div>
 	<ContactForm />
 </section>

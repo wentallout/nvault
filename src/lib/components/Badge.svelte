@@ -24,11 +24,22 @@
 
 		display: grid;
 		place-items: center;
+
+		animation: spin 5s linear infinite;
 	}
 
 	.badge p {
 		font-family: var(--font-fancy);
 		font-size: var(--step-1);
 		z-index: 3;
+	}
+
+	@keyframes spin {
+		from {
+			transform: translateX(-50%) rotate(0deg);
+		}
+		to {
+			transform: translateX(-50%) rotate(360deg);
+		}
 	}
 </style>

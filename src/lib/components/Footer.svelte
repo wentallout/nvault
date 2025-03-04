@@ -17,10 +17,7 @@
 		</div>
 
 		<div class="copyright__brand">
-			<div class="brand__logo">
-				<Logo />
-			</div>
-
+			<Logo />
 			<div class="text-trim">NVAULT</div>
 		</div>
 	</div>
@@ -61,20 +58,18 @@
 	.copyright__text {
 		text-align: right;
 		border-bottom: 5px solid white;
+		padding-bottom: var(--space-m);
 		margin-bottom: var(--space-m);
 	}
 
 	.copyright__brand {
-		font-size: 64px;
+		font-size: var(--step-3);
 		font-family: var(--font-fancy);
 		text-align: right;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		gap: var(--space-xs);
-	}
-
-	.brand__logo {
-		height: 40px;
+		height: fit-content;
 	}
 </style>

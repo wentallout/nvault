@@ -61,6 +61,8 @@
 	.popular__info {
 		display: grid;
 		grid-template-columns: 2fr 1fr;
+		margin-bottom: var(--space-l);
+		padding-bottom: var(--space-l);
 
 		h3 {
 			font-size: var(--step-1);
@@ -72,7 +74,7 @@
 
 	.popular__item {
 		display: flex;
-		margin-bottom: var(--space-m);
+		margin-bottom: var(--space-xl);
 		position: relative;
 	}
 
