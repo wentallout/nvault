@@ -5,7 +5,7 @@
 
 <PageTitle pageTitle="NFT information" />
 
-<a href="">Back to list</a>
+<a class="back" href="/products">Back to list</a>
 
 <section class="detail">
 	<img class="detail__img" src="/images/nft-3.png" alt="" />
@@ -27,6 +27,15 @@
 </section>
 
 <style>
+	.back {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: flex-start;
+		border-bottom: var(--brand-border);
+		padding: var(--space-m) var(--space-s);
+	}
+
 	.detail {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -73,5 +82,6 @@
 	.detail__btn {
 		background-color: var(--primary-500);
 		width: 100%;
+		margin-bottom: var(--space-xl);
 	}
 </style>

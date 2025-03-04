@@ -1,3 +1,7 @@
+<script>
+	import Badge from '$lib/components/Badge.svelte';
+</script>
+
 <div class="popular">
 	<div class="popular__title">
 		<h3>Most Popular</h3>
@@ -5,7 +9,7 @@
 	</div>
 
 	<a class="popular__item" href="">
-		<div>Top !</div>
+		<Badge badgeText="TOP" />
 		<img src="/images/nft-popular.avif" alt="" />
 	</a>
 
@@ -68,8 +72,8 @@
 
 	.popular__item {
 		display: flex;
-
 		margin-bottom: var(--space-m);
+		position: relative;
 	}
 
 	.popular__item img {

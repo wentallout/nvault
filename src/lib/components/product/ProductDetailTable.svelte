@@ -26,6 +26,8 @@
 		border-bottom: var(--brand-border);
 		border-right: var(--brand-border);
 		padding: var(--space-s) var(--space-m);
+		display: flex;
+		align-items: center;
 	}
 
 	.table__label {

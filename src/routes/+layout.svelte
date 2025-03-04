@@ -6,6 +6,10 @@
 
 	import '$lib/styles/global.css';
 	let { children } = $props();
+
+	import { setupViewTransition } from 'sveltekit-view-transition';
+
+	setupViewTransition();
 </script>
 
 <NavBar />
