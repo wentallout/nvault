@@ -17,7 +17,7 @@
 	header {
 		position: sticky;
 		top: 0;
-		z-index: 2;
+		z-index: 9999;
 	}
 
 	.nav {

@@ -1,10 +1,4 @@
-<svg
-	xmlns="http://www.w3.org/2000/svg"
-	fill="none"
-	viewBox="0 0 200 200"
-	width="400"
-	height="400"
-	class="coolshapes misc-1"
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200" class="coolshapes misc-1"
 	><g clip-path="url(#cs_clip_1_misc-1)"
 		><mask
 			id="cs_mask_1_misc-1"
