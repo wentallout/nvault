@@ -1,7 +1,19 @@
+<script>
+	import Logo from '$lib/components/Logo.svelte';
+	import { Menu, Xmark } from '$lib/components/icons';
+
+	let menuVisible = false;
+
+	import { fade } from 'svelte/transition';
+</script>
+
 <header>
 	<nav class="nav">
 		<div class="nav__left">
-			<a href="/" class="left__brand text-trim">NVAULT</a>
+			<a href="/" class="left__brand text-trim">
+				<Logo width="24" height="24" />
+				NVAULT
+			</a>
 		</div>
 		<div class="nav__mid">Khoa Nguyen / NFT Shop ©2025</div>
 		<div class="nav__right">
@@ -9,15 +21,34 @@
 			<a class="nav__link" href="/products">Shop</a>
 			<a class="nav__link" href="/about">About</a>
 			<a class="nav__link" href="/contact">Contact</a>
+
+			<button
+				transition:fade={{ duration: 300 }}
+				onclick={() => (menuVisible = !menuVisible)}
+				class="nav__link--mobile">
+				{#if menuVisible}
+					<Xmark />
+				{:else}
+					<Menu />
+				{/if}
+			</button>
 		</div>
 	</nav>
 </header>
+
+<div class="fullscreen-menu {menuVisible ? 'show' : 'hidden'}">
+	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/">Home</a>
+	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/products">Shop</a>
+	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/about">About</a>
+	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/contact">Contact</a>
+</div>
 
 <style>
 	header {
 		position: sticky;
 		top: 0;
 		z-index: 9999;
+		isolation: isolate;
 	}
 
 	.nav {
@@ -49,6 +80,10 @@
 
 		background-color: white;
 		height: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: var(--space-s);
 	}
 
 	.left__info {
@@ -100,6 +135,50 @@
 	@media (min-width: 992px) {
 		.nav__link {
 			display: block;
+		}
+	}
+
+	.fullscreen-menu {
+		position: fixed;
+		top: 97px;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--primary-500);
+		color: black;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: end;
+		z-index: 9999;
+		transition: transform 0.3s ease-in-out;
+		padding: var(--space-l) var(--space-m);
+		text-transform: uppercase;
+	}
+
+	@media (min-width: 992px) {
+		.fullscreen-menu {
+			display: none;
+		}
+	}
+
+	.fullscreen-menu.show {
+		transform: translateX(0);
+	}
+
+	.fullscreen-menu.hidden {
+		transform: translateX(100%);
+	}
+
+	.nav__link--mobile {
+		display: block;
+		font-size: var(--step-4);
+		font-family: var(--font-fancy);
+	}
+
+	@media (min-width: 992px) {
+		.nav__link--mobile {
+			display: none;
 		}
 	}
 </style>

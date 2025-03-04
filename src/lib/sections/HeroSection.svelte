@@ -9,9 +9,9 @@
 			A unique digital token that creates a tangible and intangible asset that acts as collector's
 			cards, virtual real estate and design works.
 		</p>
-
-		<button class="cta__btn btn">Check more</button>
-
+		<a href="/products">
+			<button class="cta__btn btn">View products</button>
+		</a>
 		<div class="cta__img">
 			<img class="" src="/images/nft-1.avif" alt="" />
 

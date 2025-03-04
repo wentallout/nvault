@@ -1,3 +1,7 @@
 import ArrowRight from '~icons/iconoir/arrow-right';
 
-export { ArrowRight };
+import Menu from '~icons/iconoir/menu';
+
+import Xmark from '~icons/iconoir/xmark';
+
+export { ArrowRight, Menu, Xmark };
