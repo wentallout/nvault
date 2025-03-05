@@ -9,6 +9,11 @@
 	padding-inline: var(--space-2xl);
 	gap: var(--space-s);
 	transition: var(--transition-bounce);
+	color: var(--black);
+}
+
+.btn p {
+	@mixin text-trim;
 }
 
 .btn:hover {
@@ -17,4 +22,26 @@
 
 .btn:active {
 	--primary-500: var(--primary-400);
+}
+
+.dot-pattern {
+	background: transparent;
+	--gap: var(--space-l);
+	--line: 1px;
+	--color: var(--background-900);
+
+	background-image:
+		linear-gradient(
+			-90deg,
+			transparent calc(var(--gap) - var(--line)),
+			var(--color) calc(var(--gap) - var(--line) + 1px),
+			var(--color) var(--gap)
+		),
+		linear-gradient(
+			0deg,
+			transparent calc(var(--gap) - var(--line)),
+			var(--color) calc(var(--gap) - var(--line) + 1px),
+			var(--color) var(--gap)
+		);
+	background-size: var(--gap) var(--gap);
 }

@@ -31,7 +31,7 @@
 	.contact__title h2 {
 		font-size: var(--step-5);
 		font-family: var(--font-fancy);
-		text-transform: uppercase;
+
 		line-height: var(--leading-none);
 	}
 

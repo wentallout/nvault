@@ -1,6 +1,6 @@
 <script>
 	import Logo from '$lib/components/Logo.svelte';
-	import { Menu, Xmark } from '$lib/components/icons';
+	import { Menu, Xmark } from '$lib/icons';
 
 	let menuVisible = false;
 
@@ -25,7 +25,7 @@
 			<button
 				transition:fade={{ duration: 300 }}
 				onclick={() => (menuVisible = !menuVisible)}
-				class="nav__link--mobile">
+				class="nav__hamburger">
 				{#if menuVisible}
 					<Xmark />
 				{:else}
@@ -55,6 +55,8 @@
 		display: grid;
 		grid-template-columns: 2fr 1fr;
 		width: 100%;
+		background-color: var(--background-50);
+		height: 64px;
 	}
 
 	@media (min-width: 992px) {
@@ -68,8 +70,7 @@
 		justify-content: space-between;
 		align-items: center;
 		border-right: var(--brand-border);
-		padding: var(--space-s) var(--space-m);
-		background-color: white;
+		padding-inline: var(--space-m);
 		height: 100%;
 		border-bottom: var(--brand-border);
 	}
@@ -78,7 +79,6 @@
 		font-size: var(--step-2);
 		font-family: var(--font-fancy);
 
-		background-color: white;
 		height: 100%;
 		display: flex;
 		flex-direction: row;
@@ -92,9 +92,9 @@
 
 	.nav__mid {
 		border-right: var(--brand-border);
-		border-bottom: 5px solid #000;
-		background-color: white;
-		padding: var(--space-s) var(--space-m);
+		border-bottom: var(--brand-border);
+
+		padding-inline: var(--space-m);
 		height: 100%;
 		display: none;
 	}
@@ -109,9 +109,9 @@
 	}
 
 	.nav__right {
-		padding: var(--space-s) var(--space-m);
-		background-color: white;
-		border-bottom: 5px solid #000;
+		padding-inline: var(--space-m);
+
+		border-bottom: var(--brand-border);
 		height: 100%;
 		display: flex;
 		flex-direction: row;
@@ -140,12 +140,12 @@
 
 	.fullscreen-menu {
 		position: fixed;
-		top: 97px;
+		top: 64px;
 		right: 0;
 		width: 100%;
 		height: 100%;
 		background-color: var(--primary-500);
-		color: black;
+		color: var(--black);
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -154,12 +154,6 @@
 		transition: var(--transition-bounce);
 		padding: var(--space-l) var(--space-m);
 		text-transform: uppercase;
-	}
-
-	@media (min-width: 992px) {
-		.fullscreen-menu {
-			display: none;
-		}
 	}
 
 	.fullscreen-menu.show {
@@ -177,8 +171,18 @@
 	}
 
 	@media (min-width: 992px) {
+		.fullscreen-menu {
+			display: none;
+		}
 		.nav__link--mobile {
 			display: none;
 		}
+		.nav__hamburger {
+			display: none;
+		}
+	}
+
+	.nav__hamburger {
+		font-size: var(--step-2);
 	}
 </style>

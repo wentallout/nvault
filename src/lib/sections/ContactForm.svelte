@@ -15,7 +15,9 @@
 			<textarea required id="message" name="message" placeholder="Hello, what's up?"></textarea>
 		</div>
 
-		<button class="contact__btn btn">Send Message</button>
+		<button class="contact__btn btn">
+			<p>Send Message</p>
+		</button>
 	</form>
 </section>
 
@@ -27,7 +29,7 @@
 	}
 
 	.contact .contact__row:first-child {
-		border-top: var(--brand-border)
+		border-top: var(--brand-border);
 	}
 
 	.contact__row {
@@ -50,6 +52,7 @@
 		padding: var(--space-s);
 		border-bottom: var(--brand-border);
 		border-right: var(--brand-border);
+		background-color: var(--background-100);
 	}
 
 	input,
@@ -59,15 +62,20 @@
 		outline: none;
 	}
 	textarea {
-		resize: none;
+		resize: vertical;
 		min-height: 200px;
+	}
+
+	input:focus,
+	textarea:focus {
+		background-color: var(--background-200);
 	}
 
 	.contact__btn {
 		text-align: left;
 		justify-content: flex-start;
 		background-color: var(--primary-500);
-		color: var(--background-100);
+		color: var(--black);
 		margin-top: var(--space-l);
 	}
 </style>

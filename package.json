@@ -26,6 +26,8 @@
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/svelte": "^5.2.7",
 		"jsdom": "^26.0.0",
+		"postcss": "^8.5.3",
+		"postcss-mixins": "^11.0.3",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
 		"svelte": "^5.22.1",

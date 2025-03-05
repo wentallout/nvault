@@ -16,7 +16,7 @@
 	.table {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		color: var(--text-100);
+		color: var(--text-900);
 
 		border-top: var(--brand-border);
 		border-left: var(--brand-border);
@@ -33,6 +33,6 @@
 	.table__label {
 		font-family: var(--font-fancy);
 		font-size: var(--step-2);
-		color: var(--text-100);
+		color: var(--text-900);
 	}
 </style>

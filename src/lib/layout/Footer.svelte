@@ -1,12 +1,16 @@
 <script>
-	import Logo from './Logo.svelte';
+	import Logo from '$lib/components/Logo.svelte';
+	import { SendMail } from '$lib/icons';
 </script>
 
 <footer class="footer">
 	<div class="footer__cta">
-		<p class="cta__text text-trim">GET IN TOUCH!</p>
+		<p class="cta__text text-trim">Get in touch</p>
 
-		<a class="cta__btn btn">Contact now</a>
+		<a href="/contact" class="cta__btn btn">
+			<SendMail />
+			<p>Contact now</p>
+		</a>
 	</div>
 
 	<div class="footer__copyright">
@@ -27,12 +31,11 @@
 	.footer {
 		display: grid;
 		grid-template-columns: 1fr;
-		background-color: #000;
-		color: white;
-		padding: var(--space-xl) var(--space-m);
+		background-color: var(--background-50);
+		color: var(--text-900);
+		padding: var(--space-l) var(--space-m);
 		gap: var(--space-l);
-
-		padding-top: var(--space-xl);
+		align-items: center;
 	}
 	@media (min-width: 992px) {
 		.footer {
@@ -47,17 +50,18 @@
 	}
 
 	.cta__btn {
-		border: 5px solid white;
+		border: var(--brand-border);
+		color: var(--text-900);
 	}
 
 	.footer__copyright {
-		display: grid;
-		grid-template-rows: 1fr 1fr;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.copyright__text {
 		text-align: right;
-		border-bottom: 5px solid white;
+		border-bottom: var(--brand-border);
 		padding-bottom: var(--space-m);
 		margin-bottom: var(--space-m);
 	}

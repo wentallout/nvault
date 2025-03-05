@@ -26,6 +26,8 @@
 		place-items: center;
 
 		animation: spin 5s linear infinite;
+
+		color: var(--black);
 	}
 
 	.badge p {

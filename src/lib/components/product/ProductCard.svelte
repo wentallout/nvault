@@ -10,7 +10,7 @@
 
 <a href={productLink}>
 	<article class="product">
-		<div class="product__thumbnail">
+		<div class="product__thumbnail dot-pattern">
 			<img src={productImg} alt="image of {productTitle}" />
 		</div>
 
@@ -30,13 +30,13 @@
 		grid-template-columns: 1fr 1fr;
 		overflow: hidden;
 		transition: var(--transition-bounce);
-	}
 
-	.product:hover {
-		background-color: var(--primary-500);
+		&:hover {
+			color: var(--primary-500);
 
-		& img {
-			transform: scale(1.2);
+			& img {
+				transform: scale(1.2);
+			}
 		}
 	}
 
@@ -69,7 +69,6 @@
 
 		/* FLEX */
 		display: flex;
-
 		flex-direction: column;
 		/* --- */
 

@@ -1,21 +1,26 @@
 <script>
+	import { ArrowLeft } from '$lib/icons';
 	import PageTitle from '$lib/components/PageTitle.svelte';
 	import ProductDetailTable from '$lib/components/product/ProductDetailTable.svelte';
 </script>
 
 <PageTitle pageTitle="NFT information" />
 
-<a class="back" href="/products">Back to list</a>
+<a class="back" href="/products">
+	<ArrowLeft />
+	<p>Back to list</p>
+</a>
 
 <section class="detail">
-	<img class="detail__img" src="/images/nft-3.png" alt="" />
-
+	<div class="detail__thumbnail dot-pattern">
+		<img class="detail__img" src="/images/nft-3.png" alt="" />
+	</div>
 	<div class="detail__info">
 		<div class="detail__head">
 			<h1 class="detail__title">Ice cream</h1>
 			<div class="detail__price">6.9 ETH</div>
 		</div>
-		<p class="detail__desc">
+		<p class="detail__desc prose">
 			Digital records that represent a given value and that can only be bought and sold on the
 			cryptocurrency blockchain.
 		</p>
@@ -27,6 +32,12 @@
 </section>
 
 <style>
+	.detail__thumbnail {
+		height: 100%;
+		display: grid;
+		place-items: center;
+	}
+
 	.back {
 		display: flex;
 		width: 100%;
@@ -34,6 +45,7 @@
 		justify-content: flex-start;
 		border-bottom: var(--brand-border);
 		padding: var(--space-m) var(--space-s);
+		gap: var(--space-s);
 	}
 
 	.detail {

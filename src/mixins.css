@@ -1,0 +1,13 @@
+@define-mixin myMixin {
+	color: blue;
+	font-weight: bold;
+	padding: 10px;
+}
+
+@define-mixin text-trim {
+	text-box: trim-both cap alphabetic;
+}
+
+@define-mixin stylish-radius {
+	border-radius: 20% 0 20% 0;
+}

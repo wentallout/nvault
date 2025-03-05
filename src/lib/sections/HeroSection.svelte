@@ -1,23 +1,23 @@
 <script>
-	import { ArrowRight } from '$lib/components/icons';
+	import { ArrowRight } from '$lib/icons';
 	import HeroPopularToken from './HeroPopularToken.svelte';
 </script>
 
 <section class="hero">
 	<div class="hero__cta">
 		<div class="cta__title">High quality NFTs for sale</div>
-		<p class="cta__desc">
+		<p class="cta__desc prose">
 			A unique digital token that creates a tangible and intangible asset that acts as collector's
 			cards, virtual real estate and design works.
 		</p>
 		<a class="cta__btn btn" href="/products">
-			<p>View products</p>
 			<ArrowRight />
+			<p>View NFTs</p>
 		</a>
 		<div class="cta__img">
 			<img class="" src="/images/nft-1.avif" alt="" />
 
-			<p>
+			<p class="prose">
 				Portal users will soon be able to create their own NFT. This was confirmed by the founder of
 				the CEO. A digital corporation is preparing new products.
 			</p>
@@ -31,6 +31,7 @@
 	.hero {
 		display: grid;
 		grid-template-columns: 1fr;
+		border-bottom: var(--brand-border);
 	}
 
 	@media (min-width: 992px) {
@@ -89,6 +90,8 @@
 			height: 460px;
 			object-fit: cover;
 			margin-bottom: var(--space-l);
+
+			@mixin stylish-radius;
 		}
 
 		& p {
@@ -99,7 +102,7 @@
 	.cta__btn {
 		grid-area: cta__btn;
 		background-color: var(--primary-500);
-		color: var(--background-50);
+		color: var(--black);
 
 		margin-bottom: var(--space-2xl);
 		width: 100%;

@@ -8,12 +8,12 @@
 		<p>05 / 2022</p>
 	</div>
 
-	<a class="popular__item" href="">
+	<a class="popular__item" href="/products/1">
 		<Badge badgeText="TOP" />
 		<img src="/images/nft-popular.avif" alt="" />
 	</a>
 
-	<div class="popular__info">
+	<div class="popular__info prose">
 		<h3>Interesting places in the collections and create crypto.</h3>
 		<p>We have prepared a list of the most interesting virtual tokens saved on the Internet.</p>
 	</div>
@@ -69,20 +69,20 @@
 			max-width: 300px;
 		}
 
-		border-bottom: 5px solid #000;
+		border-bottom: var(--brand-border);
 	}
 
 	.popular__item {
 		display: flex;
 		margin-bottom: var(--space-xl);
 		position: relative;
-	}
 
-	.popular__item img {
-		object-fit: cover;
-		width: 100%;
-		height: 480px;
-		max-height: 500px;
-		border-radius: 0 0 10% 0;
+		& img {
+			object-fit: cover;
+			width: 100%;
+			height: 480px;
+			max-height: 500px;
+			@mixin stylish-radius;
+		}
 	}
 </style>

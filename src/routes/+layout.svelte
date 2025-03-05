@@ -1,6 +1,6 @@
 <script>
-	import Footer from '$lib/components/Footer.svelte';
-	import NavBar from '$lib/components/NavBar.svelte';
+	import Footer from '$lib/layout/Footer.svelte';
+	import NavBar from '$lib/layout/NavBar.svelte';
 	import '@fontsource/russo-one';
 	import '@fontsource-variable/sora';
 

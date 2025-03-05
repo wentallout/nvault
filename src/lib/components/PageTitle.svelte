@@ -13,6 +13,11 @@
 </div>
 
 <style>
+	.title {
+		border-bottom: var(--brand-border);
+		padding-block: var(--space-s);
+	}
+
 	.title h1 {
 		padding: var(--space-xs) var(--space-m);
 
@@ -21,12 +26,12 @@
 		text-transform: uppercase;
 
 		background-color: var(--background-50);
-		color: var(--background-950);
+		color: var(--background-900);
 	}
 
 	.title p {
 		padding: var(--space-xs) var(--space-m);
 		background-color: var(--background-50);
-		color: var(--background-950);
+		color: var(--background-900);
 	}
 </style>
