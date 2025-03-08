@@ -3,11 +3,10 @@
 	import ContactForm from '$lib/sections/ContactForm.svelte';
 </script>
 
-<PageTitle pageTitle="Contact" />
+<PageTitle pageTitle="Contact us" />
 
 <section class="contact">
 	<div class="contact__title">
-		<h2 class="text-trim">Send Message</h2>
 		<p>If you have a question, send it to us and we will reply to you as soon as possible.</p>
 	</div>
 	<ContactForm />

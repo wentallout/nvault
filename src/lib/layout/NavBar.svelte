@@ -4,19 +4,21 @@
 
 	let menuVisible = false;
 
+	import { borderAnimation } from '$lib/actions/animation';
+
 	import { fade } from 'svelte/transition';
 </script>
 
 <header>
 	<nav class="nav">
-		<div class="nav__left">
+		<div use:borderAnimation class="nav__left">
 			<a href="/" class="left__brand text-trim">
 				<Logo width="24" height="24" />
 				NVAULT
 			</a>
 		</div>
-		<div class="nav__mid">Khoa Nguyen / NFT Shop ©2025</div>
-		<div class="nav__right">
+		<div use:borderAnimation class="nav__mid">Khoa Nguyen / NFT Shop ©2025</div>
+		<div use:borderAnimation class="nav__right">
 			<a class="nav__link" href="/">Home</a>
 			<a class="nav__link" href="/products">Shop</a>
 			<a class="nav__link" href="/about">About</a>

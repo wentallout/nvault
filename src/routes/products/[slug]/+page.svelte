@@ -2,6 +2,7 @@
 	import { ArrowLeft } from '$lib/icons';
 	import PageTitle from '$lib/components/PageTitle.svelte';
 	import ProductDetailTable from '$lib/components/product/ProductDetailTable.svelte';
+	import { decodeAnimation } from '$lib/actions/animation';
 </script>
 
 <PageTitle pageTitle="NFT information" />
@@ -17,8 +18,8 @@
 	</div>
 	<div class="detail__info">
 		<div class="detail__head">
-			<h1 class="detail__title">Ice cream</h1>
-			<div class="detail__price">6.9 ETH</div>
+			<h1 use:decodeAnimation class="detail__title">Ice cream</h1>
+			<div class="detail__price"><span class="numeric">6.9</span> ETH</div>
 		</div>
 		<p class="detail__desc prose">
 			Digital records that represent a given value and that can only be bought and sold on the
@@ -66,7 +67,8 @@
 	.detail__img {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.detail__title {

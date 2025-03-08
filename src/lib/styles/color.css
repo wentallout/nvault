@@ -125,14 +125,4 @@
 	}
 }
 
-:root {
-	accent-color: var(--primary-500);
 
-	--black: hsl(341, 37%, 10%);
-	--white: hsl(341, 37%, 90%);
-}
-
-body {
-	background-color: var(--background-50);
-	color: var(--text-950);
-}

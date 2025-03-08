@@ -1,15 +1,21 @@
 .btn {
 	border-radius: var(--border-radius-2);
-	height: 110px;
+	height: 56px;
 	font-family: var(--font-fancy);
 	font-size: var(--step-2);
 	text-transform: uppercase;
 	display: flex;
 	align-items: center;
-	padding-inline: var(--space-2xl);
+	padding-inline: var(--space-l);
 	gap: var(--space-s);
 	transition: var(--transition-bounce);
 	color: var(--black);
+}
+
+@media (min-width: 992px) {
+	.btn {
+		height: 72px;
+	}
 }
 
 .btn p {

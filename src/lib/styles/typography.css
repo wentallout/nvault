@@ -21,7 +21,4 @@
 	--font-fancy: 'Russo One', sans-serif;
 }
 
-body {
-	font-family: var(--font-normal);
-	font-size: var(--step-0);
-}
+

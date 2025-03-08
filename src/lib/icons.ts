@@ -10,4 +10,6 @@ import SendMail from '~icons/iconoir/send-mail';
 
 import SendDiagonal from '~icons/iconoir/send-diagonal';
 
-export { ArrowRight, Menu, Xmark, SendMail, ArrowLeft, SendDiagonal };
+import Eth from '~icons/iconoir/ethereum-circle';
+
+export { ArrowRight, Menu, Xmark, SendMail, ArrowLeft, SendDiagonal, Eth };

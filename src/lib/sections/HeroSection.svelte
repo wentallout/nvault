@@ -1,14 +1,14 @@
 <script>
+	import { borderAnimation,decodeAnimation } from '$lib/actions/animation';
 	import { ArrowRight } from '$lib/icons';
 	import HeroPopularToken from './HeroPopularToken.svelte';
 </script>
 
 <section class="hero">
-	<div class="hero__cta">
-		<div class="cta__title">High quality NFTs for sale</div>
-		<p class="cta__desc prose">
-			A unique digital token that creates a tangible and intangible asset that acts as collector's
-			cards, virtual real estate and design works.
+	<div class="hero__cta" use:borderAnimation>
+		<div class="cta__title" use:decodeAnimation>Own The Future</div>
+		<p use:decodeAnimation class="cta__desc prose">
+			Exclusive digital masterpieces that turn pixels into profit. Join the elite collectors shaping tomorrow's art market.
 		</p>
 		<a class="cta__btn btn" href="/products">
 			<ArrowRight />
@@ -18,8 +18,7 @@
 			<img class="" src="/images/nft-1.avif" alt="" />
 
 			<p class="prose">
-				Portal users will soon be able to create their own NFT. This was confirmed by the founder of
-				the CEO. A digital corporation is preparing new products.
+				Limited drops. Unlimited potential. Each NFT in our vault is handpicked to maximize both artistic value and investment returns.
 			</p>
 		</div>
 	</div>
@@ -72,14 +71,12 @@
 
 	.cta__desc {
 		grid-area: cta__desc;
-		text-align: right;
-
 		width: 100%;
 		max-width: 30ch;
-		place-self: flex-end;
 		align-self: baseline;
 		display: flex;
 		text-wrap: pretty;
+		margin-bottom: var(--space-m);
 	}
 
 	.cta__img {

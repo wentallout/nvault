@@ -1,4 +1,8 @@
-<section class="table">
+<script>
+	import { revealAnimation } from '$lib/actions/animation';
+</script>
+
+<section class="table" use:revealAnimation>
 	<div class="table__label">Author</div>
 	<div class="">Adrian Gonsales</div>
 
@@ -15,11 +19,17 @@
 <style>
 	.table {
 		display: grid;
-		grid-template-columns: auto 1fr;
+		grid-template-columns: 1fr;
 		color: var(--text-900);
 
 		border-top: var(--brand-border);
 		border-left: var(--brand-border);
+	}
+
+	@media (min-width: 992px) {
+		.table {
+			grid-template-columns: auto 1fr;
+		}
 	}
 
 	.table > div {

@@ -1,32 +1,34 @@
 <script>
+	import { borderAnimation, decodeAnimation, revealAnimation } from '$lib/actions/animation';
 	import PageTitle from '$lib/components/PageTitle.svelte';
 </script>
 
 <PageTitle pageTitle="About" />
 
-<section class="about">
-	<section>
+<section class="about" use:borderAnimation>
+	<section use:revealAnimation>
 		<img class="about__img" src="/images/about-1.png" alt="" />
-		<h2 class="about__heading">Who We Are</h2>
-
+		<h2 use:decodeAnimation class="about__heading">Who We Are</h2>
+		revealAnimation
 		<p class="prose">
 			NVAULT is where digital art meets opportunity. We empower creators and collectors to trade
-			NFTs in a secure, dynamic space.
+			NFTs in a secure, dynamic space.revealAnimation
 		</p>
 	</section>
-	<section>
+
+	<section use:revealAnimation>
 		<img class="about__img" src="/images/about-2.jpeg" alt="" />
-		<h2 class="about__heading">What We Do</h2>
+		<h2 use:decodeAnimation class="about__heading">What We Do</h2>
 
 		<p class="prose">
 			Buy, sell, and trade NFTs easily with: Exclusive drops Real-time auctions Simple minting tools
 			Secure blockchain transactions
 		</p>
 	</section>
-	<section>
+	<section use:revealAnimation>
 		<img class="about__img" src="/images/about-3.jpeg" alt="" />
 
-		<h2 class="about__heading">Why Choose Us</h2>
+		<h2 use:decodeAnimation class="about__heading">Why Choose Us</h2>
 
 		<p class="prose">
 			Verified Creators: Authentic, high-quality art User-Friendly Design: Easy for anyone to use
@@ -44,8 +46,8 @@
 		& .about__heading {
 			font-family: var(--font-fancy);
 			font-size: var(--step-3);
-			margin-bottom: var(--space-s);
-			grid-row: 2;
+			line-height: var(--leading-none);
+			align-self: center;
 		}
 	}
 
@@ -75,12 +77,6 @@
 		filter: grayscale(1);
 
 		@mixin stylish-radius;
-	}
-
-	.about__btn {
-		background-color: var(--primary-500);
-		color: var(--background-50);
-		width: 100%;
 	}
 
 	.about section {

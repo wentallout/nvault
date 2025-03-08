@@ -1,4 +1,9 @@
 <script>
+	import { borderAnimation, decodeAnimation } from '$lib/actions/animation';
+	import { Eth } from '$lib/icons';
+
+	import { Image } from '@unpic/svelte';
+
 	let {
 		productLink = '/products/1',
 		productTitle = 'Shape',
@@ -9,14 +14,27 @@
 </script>
 
 <a href={productLink}>
-	<article class="product">
+	<article class="product" use:borderAnimation>
 		<div class="product__thumbnail dot-pattern">
-			<img src={productImg} alt="image of {productTitle}" />
+			<!-- <img src= alt="image of {productTitle}" /> -->
+
+			<Image
+				class="product__img"
+				src={productImg}
+				layout="fullWidth"
+				loading="lazy"
+				alt="image of {productTitle}" />
 		</div>
 
 		<div class="product__info">
-			<h3>{productTitle}</h3>
-			<p class="info__price">{productPrice} {currency}</p>
+			<h3 use:decodeAnimation>{productTitle}</h3>
+			<div class="info__price">
+				<p class="">
+					{productPrice}
+					{currency}
+				</p>
+				<Eth />
+			</div>
 		</div>
 	</article>
 </a>
@@ -27,7 +45,7 @@
 		border-right: var(--brand-border);
 		display: grid;
 		grid-template-rows: subgrid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: minmax(100px, 200px) 1fr;
 		overflow: hidden;
 		transition: var(--transition-bounce);
 
@@ -65,7 +83,6 @@
 	.product__info {
 		font-family: var(--font-fancy);
 		font-size: var(--step-2);
-		text-transform: uppercase;
 
 		/* FLEX */
 		display: flex;
@@ -93,5 +110,8 @@
 	.info__price {
 		font-size: var(--step-1);
 		font-family: var(--font-normal);
+		display: flex;
+		flex-direction: row;
+		gap: var(--space-2xs);
 	}
 </style>

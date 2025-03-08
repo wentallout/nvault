@@ -1,4 +1,5 @@
 <script>
+	import { borderAnimation } from '$lib/actions/animation';
 	import Logo from '$lib/components/Logo.svelte';
 	import { SendMail } from '$lib/icons';
 </script>
@@ -14,7 +15,7 @@
 	</div>
 
 	<div class="footer__copyright">
-		<div class="copyright__text">
+		<div use:borderAnimation class="copyright__text">
 			<p>Demonstration website for a beautiful NFT shop.</p>
 			<p>Created by Khoa Nguyen</p>
 			<p>wentallout ©2025 All rights reserved</p>
@@ -33,13 +34,29 @@
 		grid-template-columns: 1fr;
 		background-color: var(--background-50);
 		color: var(--text-900);
-		padding: var(--space-l) var(--space-m);
-		gap: var(--space-l);
 		align-items: center;
+		position: relative;
+
+		overflow: hidden;
 	}
+
+	.footer__cta {
+		padding: var(--space-2xl) var(--space-m);
+		height: 100%;
+	}
+
+	.footer__copyright {
+		padding: var(--space-2xl) var(--space-m);
+		height: 100%;
+	}
+
 	@media (min-width: 992px) {
 		.footer {
 			grid-template-columns: 2fr 1fr;
+		}
+
+		.footer__cta {
+			border-right: var(--brand-border);
 		}
 	}
 
@@ -60,16 +77,14 @@
 	}
 
 	.copyright__text {
-		text-align: right;
 		border-bottom: var(--brand-border);
 		padding-bottom: var(--space-m);
 		margin-bottom: var(--space-m);
 	}
 
 	.copyright__brand {
-		font-size: var(--step-3);
+		font-size: var(--step-2);
 		font-family: var(--font-fancy);
-		text-align: right;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
