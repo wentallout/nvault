@@ -19,7 +19,7 @@
 }
 
 .btn p {
-	@mixin text-trim;
+	text-box: trim-both cap alphabetic;
 }
 
 .btn:hover {

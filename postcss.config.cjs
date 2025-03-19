@@ -4,7 +4,7 @@ const mixins = require('postcss-mixins');
 module.exports = {
 	plugins: [
 		mixins({
-			mixinsFiles: ['./src/styles/mixins.css'] // Path to your mixin definitions file
+			mixinsFiles: ['./src/lib/styles/mixins.css']
 		})
 	]
 };

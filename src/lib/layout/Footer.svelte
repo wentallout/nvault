@@ -6,7 +6,7 @@
 
 <footer class="footer">
 	<div class="footer__cta">
-		<p class="cta__text text-trim">Get in touch</p>
+		<p class="cta__text textTrim">Get in touch</p>
 
 		<a href="/contact" class="cta__btn btn">
 			<SendMail />
@@ -23,7 +23,7 @@
 
 		<div class="copyright__brand">
 			<Logo />
-			<div class="text-trim">NVAULT</div>
+			<div class="textTrim">NVAULT</div>
 		</div>
 	</div>
 </footer>

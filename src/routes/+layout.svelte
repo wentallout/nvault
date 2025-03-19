@@ -16,8 +16,6 @@
 	import { onMount } from 'svelte';
 
 	gsap.registerPlugin(ScrollTrigger);
-
-	
 </script>
 
 <NavBar />

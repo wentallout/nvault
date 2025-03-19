@@ -1,18 +1,31 @@
 <script>
 	import Logo from '$lib/components/Logo.svelte';
 	import { Menu, Xmark } from '$lib/icons';
+	import { borderAnimation } from '$lib/actions/animation';
+	import { fade } from 'svelte/transition';
+	import { browser } from '$app/environment';
+	import { onDestroy } from 'svelte';
 
 	let menuVisible = false;
 
-	import { borderAnimation } from '$lib/actions/animation';
+	function toggleMenu() {
+		menuVisible = !menuVisible;
+		if (browser) {
+			document.body.style.overflow = menuVisible ? 'hidden' : 'auto';
+		}
+	}
 
-	import { fade } from 'svelte/transition';
+	onDestroy(() => {
+		if (browser) {
+			document.body.style.overflow = 'auto';
+		}
+	});
 </script>
 
 <header>
 	<nav class="nav">
 		<div use:borderAnimation class="nav__left">
-			<a href="/" class="left__brand text-trim">
+			<a href="/" class="left__brand textTrim">
 				<Logo width="24" height="24" />
 				NVAULT
 			</a>
@@ -24,10 +37,7 @@
 			<a class="nav__link" href="/about">About</a>
 			<a class="nav__link" href="/contact">Contact</a>
 
-			<button
-				transition:fade={{ duration: 300 }}
-				onclick={() => (menuVisible = !menuVisible)}
-				class="nav__hamburger">
+			<button transition:fade={{ duration: 300 }} onclick={toggleMenu} class="nav__hamburger">
 				{#if menuVisible}
 					<Xmark />
 				{:else}
@@ -39,10 +49,10 @@
 </header>
 
 <div class="fullscreen-menu {menuVisible ? 'show' : 'hidden'}">
-	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/">Home</a>
-	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/products">Shop</a>
-	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/about">About</a>
-	<a onclick={() => (menuVisible = false)} class="nav__link--mobile" href="/contact">Contact</a>
+	<a onclick={toggleMenu} class="nav__link--mobile" href="/">Home</a>
+	<a onclick={toggleMenu} class="nav__link--mobile" href="/products">Shop</a>
+	<a onclick={toggleMenu} class="nav__link--mobile" href="/about">About</a>
+	<a onclick={toggleMenu} class="nav__link--mobile" href="/contact">Contact</a>
 </div>
 
 <style>
@@ -71,10 +81,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		border-right: var(--brand-border);
+
 		padding-inline: var(--space-m);
 		height: 100%;
 		border-bottom: var(--brand-border);
+	}
+
+	@media (min-width: 992px) {
+		.nav__left {
+			border-right: var(--brand-border);
+		}
 	}
 
 	.left__brand {
