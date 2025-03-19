@@ -11,7 +11,7 @@ body {
 	background-color: var(--background-50);
 	color: var(--text-950);
 
-	scrollbar-gutter: stable;
+	scrollbar-gutter: stable !important;
 	overflow-y: scroll;
 }
 

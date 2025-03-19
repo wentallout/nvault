@@ -5,8 +5,13 @@
 	import { fade } from 'svelte/transition';
 	import { browser } from '$app/environment';
 	import { onDestroy } from 'svelte';
+	import { page } from '$app/state';
 
-	let menuVisible = false;
+	// Using $state rune for reactive state
+	let menuVisible = $state(false);
+
+	// Using $derived rune for computed values
+	let currentPath = $derived(page.url.pathname);
 
 	function toggleMenu() {
 		menuVisible = !menuVisible;
@@ -32,10 +37,10 @@
 		</div>
 		<div use:borderAnimation class="nav__mid">Khoa Nguyen / NFT Shop ©2025</div>
 		<div use:borderAnimation class="nav__right">
-			<a class="nav__link" href="/">Home</a>
-			<a class="nav__link" href="/products">Shop</a>
-			<a class="nav__link" href="/about">About</a>
-			<a class="nav__link" href="/contact">Contact</a>
+			<a class="nav__link" class:active={currentPath === '/'} href="/">Home</a>
+			<a class="nav__link" class:active={currentPath === '/products'} href="/products">Shop</a>
+			<a class="nav__link" class:active={currentPath === '/about'} href="/about">About</a>
+			<a class="nav__link" class:active={currentPath === '/contact'} href="/contact">Contact</a>
 
 			<button transition:fade={{ duration: 300 }} onclick={toggleMenu} class="nav__hamburger">
 				{#if menuVisible}
@@ -48,11 +53,24 @@
 	</nav>
 </header>
 
-<div class="fullscreen-menu {menuVisible ? 'show' : 'hidden'}">
-	<a onclick={toggleMenu} class="nav__link--mobile" href="/">Home</a>
-	<a onclick={toggleMenu} class="nav__link--mobile" href="/products">Shop</a>
-	<a onclick={toggleMenu} class="nav__link--mobile" href="/about">About</a>
-	<a onclick={toggleMenu} class="nav__link--mobile" href="/contact">Contact</a>
+<div class="fullscreen-menu" class:show={menuVisible}>
+	<a onclick={toggleMenu} class="nav__link--mobile" class:active={currentPath === '/'} href="/"
+		>Home</a>
+	<a
+		onclick={toggleMenu}
+		class="nav__link--mobile"
+		class:active={currentPath === '/products'}
+		href="/products">Shop</a>
+	<a
+		onclick={toggleMenu}
+		class="nav__link--mobile"
+		class:active={currentPath === '/about'}
+		href="/about">About</a>
+	<a
+		onclick={toggleMenu}
+		class="nav__link--mobile"
+		class:active={currentPath === '/contact'}
+		href="/contact">Contact</a>
 </div>
 
 <style>
@@ -161,31 +179,39 @@
 		top: 64px;
 		right: 0;
 		width: 100%;
-		height: 100%;
+		height: calc(100vh - 64px); /* Subtract navbar height */
 		background-color: var(--primary-500);
 		color: var(--black);
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: end;
+		gap: var(--space-xl);
 		z-index: 9999;
-		transition: var(--transition-bounce);
-		padding: var(--space-l) var(--space-m);
+		padding: var(--space-xl) var(--space-m);
 		text-transform: uppercase;
+		transform: translateX(100%);
+		/* Use the custom bounce transition from your CSS variables */
+		transition: transform var(--transition-bounce);
 	}
 
 	.fullscreen-menu.show {
 		transform: translateX(0);
 	}
 
-	.fullscreen-menu.hidden {
-		transform: translateX(100%);
-	}
-
 	.nav__link--mobile {
 		display: block;
 		font-size: var(--step-4);
 		font-family: var(--font-fancy);
+		transition: color var(--transition-bounce);
+	}
+
+	/* Add highlight for active mobile link */
+	.nav__link--mobile.active {
+		background: var(--background-50);
+		color: var(
+			--background-950
+		); /* Using the light background color to contrast with primary-500 background */
 	}
 
 	@media (min-width: 992px) {
@@ -202,5 +228,26 @@
 
 	.nav__hamburger {
 		font-size: var(--step-2);
+	}
+
+	/* Add these styles */
+	.nav__link {
+		position: relative;
+		padding-bottom: 2px;
+	}
+
+	.nav__link::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: var(--primary-500);
+		transition: width var(--transition-bounce);
+	}
+
+	.nav__link.active::after {
+		width: 100%;
 	}
 </style>

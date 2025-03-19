@@ -45,7 +45,7 @@ export function decodeAnimation(
 	node: HTMLElement,
 	{
 		text = node.textContent,
-		duration = 0.3,
+		duration = 0.5,
 		scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+=-'
 	} = {}
 ) {
