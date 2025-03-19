@@ -11,8 +11,8 @@ body {
 	background-color: var(--background-50);
 	color: var(--text-950);
 
+	overflow-y: auto;
 	scrollbar-gutter: stable !important;
-	overflow-y: scroll;
 }
 
 :root {

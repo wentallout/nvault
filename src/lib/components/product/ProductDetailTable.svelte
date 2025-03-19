@@ -1,19 +1,26 @@
 <script>
 	import { revealAnimation } from '$lib/actions/animation';
+	
+	let {
+		author = 'Unknown',
+		features = [],
+		editionNumber = 'N/A',
+		rarity = 'Common'
+	} = $props();
 </script>
 
 <section class="table" use:revealAnimation>
 	<div class="table__label">Author</div>
-	<div class="">Adrian Gonsales</div>
+	<div class="">{author}</div>
 
 	<div class="table__label">Features</div>
-	<div class="">cream</div>
+	<div class="">{features.join(', ') || 'None'}</div>
 
 	<div class="table__label">Edition number</div>
-	<div class="">3/100</div>
+	<div class="">{editionNumber}</div>
 
 	<div class="table__label">Rarity</div>
-	<div class="">Super rare</div>
+	<div class="">{rarity}</div>
 </section>
 
 <style>

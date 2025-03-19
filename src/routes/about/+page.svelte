@@ -1,40 +1,39 @@
 <script>
 	import { borderAnimation, decodeAnimation, revealAnimation } from '$lib/actions/animation';
 	import PageTitle from '$lib/components/PageTitle.svelte';
+
+	const abouts = [
+		{
+			image: '/images/about-1.png',
+			heading: 'Who We Are',
+			description:
+				'NVAULT is where digital art meets opportunity. We empower creators and collectors to trade NFTs in a secure, dynamic space.'
+		},
+		{
+			image: '/images/about-2.jpeg',
+			heading: 'What We Do',
+			description:
+				'Buy, sell, and trade NFTs easily with: Exclusive drops Real-time auctions Simple minting tools Secure blockchain transactions'
+		},
+		{
+			image: '/images/about-3.jpeg',
+			heading: 'Why Choose Us',
+			description:
+				'Verified Creators: Authentic, high-quality art User-Friendly Design: Easy for anyone to use Future-Ready Tech: Always innovating Join Nvault — shaping the future of digital ownership.'
+		}
+	];
 </script>
 
 <PageTitle pageTitle="About" />
 
 <section class="about" use:borderAnimation>
-	<section use:revealAnimation>
-		<img class="about__img" src="/images/about-1.png" alt="" />
-		<h2 use:decodeAnimation class="about__heading">Who We Are</h2>
-
-		<p class="prose">
-			NVAULT is where digital art meets opportunity. We empower creators and collectors to trade
-			NFTs in a secure, dynamic space.revealAnimation
-		</p>
-	</section>
-
-	<section use:revealAnimation>
-		<img class="about__img" src="/images/about-2.jpeg" alt="" />
-		<h2 use:decodeAnimation class="about__heading">What We Do</h2>
-
-		<p class="prose">
-			Buy, sell, and trade NFTs easily with: Exclusive drops Real-time auctions Simple minting tools
-			Secure blockchain transactions
-		</p>
-	</section>
-	<section use:revealAnimation>
-		<img class="about__img" src="/images/about-3.jpeg" alt="" />
-
-		<h2 use:decodeAnimation class="about__heading">Why Choose Us</h2>
-
-		<p class="prose">
-			Verified Creators: Authentic, high-quality art User-Friendly Design: Easy for anyone to use
-			Future-Ready Tech: Always innovating Join Nvault — shaping the future of digital ownership.
-		</p>
-	</section>
+	{#each abouts as { image, heading, description }}
+		<section use:revealAnimation>
+			<img height="273" loading="lazy" class="about__img" src={image} alt="" />
+			<h2 use:decodeAnimation class="about__heading">{heading}</h2>
+			<p class="prose">{description}</p>
+		</section>
+	{/each}
 </section>
 
 <style>

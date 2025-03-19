@@ -1,23 +1,22 @@
-<script>
+<script lang="ts">
 	import { borderAnimation, decodeAnimation } from '$lib/actions/animation';
 	import { Eth } from '$lib/icons';
-
 	import { Image } from '@unpic/svelte';
 
 	let {
-		productLink = '/products/1',
+		id = 1,
 		productTitle = 'Shape',
 		productImg = '/images/product-1.avif',
 		productPrice = 100,
 		currency = 'ETH'
 	} = $props();
+
+	let productLink = $derived(`/products/${id}`);
 </script>
 
-<a href={productLink}>
+<a class="link" href={productLink}>
 	<article class="product" use:borderAnimation>
 		<div class="product__thumbnail dot-pattern">
-			<!-- <img src= alt="image of {productTitle}" /> -->
-
 			<Image
 				class="product__img"
 				src={productImg}
@@ -40,6 +39,10 @@
 </a>
 
 <style>
+	.link {
+		display: contents;
+		isolation: isolate;
+	}
 	.product {
 		border-bottom: var(--brand-border);
 		border-right: var(--brand-border);

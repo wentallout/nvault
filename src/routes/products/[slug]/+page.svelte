@@ -1,36 +1,50 @@
-<script>
+<script lang="ts">
 	import { ArrowLeft } from '$lib/icons';
 	import PageTitle from '$lib/components/PageTitle.svelte';
 	import ProductDetailTable from '$lib/components/product/ProductDetailTable.svelte';
 	import { decodeAnimation } from '$lib/actions/animation';
+	import type { Product } from '$lib/api/products';
+
+	let { data } = $props();
+	let product = $derived(data.product as Product);
 </script>
 
-<PageTitle pageTitle="NFT information" />
+{#if product}
+	<PageTitle pageTitle="NFT information" />
 
-<a class="back" href="/products">
-	<ArrowLeft />
-	<p>Back to list</p>
-</a>
+	<a class="back" href="/products">
+		<ArrowLeft />
+		<p>Back to list</p>
+	</a>
 
-<section class="detail">
-	<div class="detail__thumbnail dot-pattern">
-		<img class="detail__img" src="/images/nft-3.png" alt="" />
-	</div>
-	<div class="detail__info">
-		<div class="detail__head">
-			<h1 use:decodeAnimation class="detail__title">Ice cream</h1>
-			<div class="detail__price"><span class="numeric">6.9</span> ETH</div>
+	<section class="detail">
+		<div class="detail__thumbnail dot-pattern">
+			<img class="detail__img" src={product.productImg} alt={product.productTitle} />
 		</div>
-		<p class="detail__desc prose">
-			Digital records that represent a given value and that can only be bought and sold on the
-			cryptocurrency blockchain.
-		</p>
+		<div class="detail__info">
+			<div class="detail__head">
+				<h1 use:decodeAnimation class="detail__title">{product.productTitle}</h1>
+				<div class="detail__price">
+					<span class="numeric">{product.productPrice}</span> {product.currency}
+				</div>
+			</div>
+			<p class="detail__desc prose">
+				{product.description}
+			</p>
 
-		<button class="detail__btn btn">Buy token</button>
+			<button class="detail__btn btn">Buy token</button>
 
-		<ProductDetailTable />
-	</div>
-</section>
+			<ProductDetailTable 
+				author={product.author}
+				features={product.features}
+				editionNumber={product.editionNumber}
+				rarity={product.rarity}
+			/>
+		</div>
+	</section>
+{:else}
+	<div class="loading">Loading...</div>
+{/if}
 
 <style>
 	.detail__thumbnail {

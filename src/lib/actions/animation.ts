@@ -1,7 +1,9 @@
 // src/lib/borderAnimation.js
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+import { TextPlugin } from 'gsap/dist/TextPlugin';
+
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 export function borderAnimation(
 	node: HTMLElement,
