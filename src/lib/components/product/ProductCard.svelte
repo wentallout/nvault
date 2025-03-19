@@ -58,6 +58,10 @@
 		}
 	}
 
+	.product__img {
+		transform: scale(1.2);
+	}
+
 	@media (min-width: 992px) {
 		.product {
 			grid-template-columns: minmax(150px, 1fr) 1fr 1fr;

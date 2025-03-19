@@ -9,7 +9,7 @@
 	<section use:revealAnimation>
 		<img class="about__img" src="/images/about-1.png" alt="" />
 		<h2 use:decodeAnimation class="about__heading">Who We Are</h2>
-		revealAnimation
+
 		<p class="prose">
 			NVAULT is where digital art meets opportunity. We empower creators and collectors to trade
 			NFTs in a secure, dynamic space.revealAnimation

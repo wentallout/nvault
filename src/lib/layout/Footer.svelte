@@ -32,12 +32,18 @@
 	.footer {
 		display: grid;
 		grid-template-columns: 1fr;
-		background-color: var(--background-50);
+
 		color: var(--text-900);
 		align-items: center;
 		position: relative;
 
 		overflow: hidden;
+
+		background: linear-gradient(
+			0deg,
+			color-mix(in srgb, var(--primary-500), var(--background-100) 70%) 0%,
+			var(--background-100) 20%
+		);
 	}
 
 	.footer__cta {
