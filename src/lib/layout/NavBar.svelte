@@ -186,9 +186,9 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: end;
-		gap: var(--space-xl);
+
 		z-index: 9999;
-		padding: var(--space-xl) var(--space-m);
+
 		text-transform: uppercase;
 		transform: translateX(100%);
 		/* Use the custom bounce transition from your CSS variables */
@@ -204,6 +204,9 @@
 		font-size: var(--step-4);
 		font-family: var(--font-fancy);
 		transition: color var(--transition-bounce);
+		padding: var(--space-m) var(--space-m);
+		width: 100%;
+		text-align: right;
 	}
 
 	/* Add highlight for active mobile link */
