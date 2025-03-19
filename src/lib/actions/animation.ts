@@ -47,7 +47,7 @@ export function decodeAnimation(
 	node: HTMLElement,
 	{
 		text = node.textContent,
-		duration = 0.5,
+		duration = 0.2,
 		scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+=-'
 	} = {}
 ) {
@@ -55,26 +55,22 @@ export function decodeAnimation(
 		return;
 	}
 
-	let length = text.length;
-
 	let scramble = gsap.timeline({ paused: true });
 
 	scramble.to(node, {
-		text: { value: text, delimiter: '', speed: 0.3 },
 		duration,
 		ease: 'none',
 		onUpdate() {
-			let decoded = '';
-			for (let i = 0; i < length; i++) {
-				if (text[i] === ' ') {
-					decoded += ' ';
-				} else {
-					decoded +=
-						Math.random() > this.progress() + 0.1
-							? scrambleChars[Math.floor(Math.random() * scrambleChars.length)]
-							: text[i];
-				}
-			}
+			const progress = this.progress();
+			let decoded = text
+				.split('')
+				.map(char => 
+					char === ' ' ? ' ' : 
+					Math.random() > progress 
+						? scrambleChars[Math.floor(Math.random() * scrambleChars.length)]
+						: char
+				)
+				.join('');
 			node.innerText = decoded;
 		}
 	});
@@ -87,7 +83,7 @@ export function decodeAnimation(
 		onEnter: () => {
 			scramble.restart();
 		},
-		once: true // Reveal only once
+		once: true
 	});
 
 	return {
@@ -97,7 +93,6 @@ export function decodeAnimation(
 			if (trigger) {
 				trigger.kill();
 			}
-			node.style.width = ''; // Reset on destroy
 		}
 	};
 }
