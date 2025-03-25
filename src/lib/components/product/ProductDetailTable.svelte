@@ -1,12 +1,7 @@
 <script>
 	import { revealAnimation } from '$lib/actions/animation';
-	
-	let {
-		author = 'Unknown',
-		features = [],
-		editionNumber = 'N/A',
-		rarity = 'Common'
-	} = $props();
+
+	let { author = 'Unknown', features = [], editionNumber = 'N/A', rarity = 'Common' } = $props();
 </script>
 
 <section class="table" use:revealAnimation>
@@ -49,7 +44,7 @@
 
 	.table__label {
 		font-family: var(--font-fancy);
-		font-size: var(--step-2);
+		font-size: var(--step-1);
 		color: var(--text-900);
 	}
 </style>

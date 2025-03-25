@@ -72,6 +72,7 @@
 	.detail {
 		display: grid;
 		grid-template-columns: 1fr;
+		border-bottom: var(--brand-border);
 	}
 
 	@media (min-width: 992px) {
@@ -81,7 +82,7 @@
 	}
 
 	.detail__info {
-		padding: var(--space-m);
+		padding: var(--space-l);
 	}
 
 	.detail__img {
@@ -93,8 +94,13 @@
 
 	.detail__title {
 		font-family: var(--font-fancy);
-		font-size: var(--step-5);
-		text-transform: uppercase;
+		font-size: var(--step-4);
+	}
+
+	@media (min-width: 992px) {
+		.detail__title {
+			font-size: var(--step-5);
+		}
 	}
 
 	.detail__head {
@@ -104,13 +110,18 @@
 		justify-content: space-between;
 	}
 
+	.detail__head h1 {
+		font-size: var(--step-4);
+	}
+
 	.detail__price {
-		font-size: var(--step-3);
+		font-size: var(--step-2);
 		color: var(--primary-500);
 		display: flex;
 		flex-direction: row;
 		gap: var(--space-xs);
 		align-items: center;
+		margin-bottom: var(--space-s);
 	}
 
 	.detail__desc {
