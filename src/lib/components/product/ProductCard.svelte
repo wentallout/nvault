@@ -28,7 +28,7 @@
 		<div class="product__info">
 			<h3 use:decodeAnimation>{productTitle}</h3>
 			<div class="info__price">
-				<p class="">
+				<p>
 					{productPrice}
 					{currency}
 				</p>
@@ -48,7 +48,7 @@
 		border-right: var(--brand-border);
 		display: grid;
 		grid-template-rows: subgrid;
-		grid-template-columns: minmax(100px, 200px) 1fr;
+		grid-template-columns: minmax(50px, 100px) 1fr;
 		overflow: hidden;
 		transition: var(--transition-bounce);
 
@@ -61,14 +61,14 @@
 		}
 	}
 
-	.product__img {
-		transform: scale(1.2);
-	}
-
 	@media (min-width: 992px) {
 		.product {
 			grid-template-columns: minmax(150px, 1fr) 1fr 1fr;
 		}
+	}
+
+	.product__img {
+		transform: scale(1.2);
 	}
 
 	.product__thumbnail {
@@ -115,10 +115,12 @@
 	}
 
 	.info__price {
-		font-size: var(--step-1);
+		font-size: var(--step-0);
 		font-family: var(--font-normal);
 		display: flex;
 		flex-direction: row;
 		gap: var(--space-2xs);
+		align-items: center;
+		color: var(--primary-500);
 	}
 </style>

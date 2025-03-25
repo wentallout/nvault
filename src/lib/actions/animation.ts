@@ -1,91 +1,112 @@
 // src/lib/borderAnimation.js
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { TextPlugin } from 'gsap/dist/TextPlugin';
+import { gsap } from 'gsap'; // Main GSAP library for animations
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'; // Plugin for scroll-based animations
+import { TextPlugin } from 'gsap/dist/TextPlugin'; // Plugin for text animations
 
+// Register GSAP plugins so they're available for use
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+// Border Animation: Creates a drawing effect for borders
 export function borderAnimation(
-	node: HTMLElement,
-	{ duration = 1.5, ease = 'power2.out', start = 'top 90%' } = {}
+	node: HTMLElement, // The DOM element to animate
+	{
+		duration = 1.5, // How long the animation takes
+		ease = 'power2.out', // Animation easing function
+		start = 'top 90%' // When to trigger (element's top hits 90% of viewport)
+	} = {}
 ) {
+	// Find all child elements that might have borders
 	const childElements = node.querySelectorAll('*');
 
 	childElements.forEach((child) => {
+		// Check if element has our custom border property
 		const border = getComputedStyle(child).getPropertyValue('--brand-border');
 		if (border) {
+			// Initialize border progress to 0
 			gsap.set(node, { '--border-progress': 0 });
 
+			// Create the animation
 			gsap.to(node, {
-				'--border-progress': 1,
+				'--border-progress': 1, // Animate from 0 to 1
 				duration,
 				ease,
 				scrollTrigger: {
-					trigger: node,
-					start,
-					toggleActions: 'play none none none'
+					trigger: node, // Element that triggers animation
+					start, // When to start
+					toggleActions: 'play none none none' // Play once when triggered
 				},
+				// Update border gradient on each frame
 				onUpdate: () => {
-					node.style.borderImage = `linear-gradient(to right, var(--background-900) ${gsap.getProperty(node, '--border-progress') * 100}%, transparent 0%)`;
+					// Create gradient effect using CSS border-image
+					node.style.borderImage = `linear-gradient(
+						to right, 
+						var(--background-900) ${gsap.getProperty(node, '--border-progress') * 100}%, 
+						transparent 0%
+					)`;
 					node.style.borderImageSlice = '1';
 				}
 			});
 		}
 	});
 
+	// Cleanup function for when element is destroyed
 	return {
 		destroy() {
 			const trigger = ScrollTrigger.getById(node.id);
-			if (trigger) {
-				trigger.kill();
-			}
+			if (trigger) trigger.kill();
 		}
 	};
 }
 
+// Decode Animation: Creates a Matrix-style text scramble effect
 export function decodeAnimation(
-	node: HTMLElement,
+	node: HTMLElement, // The text element to animate
 	{
-		text = node.textContent,
-		duration = 0.2,
-		scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+=-'
+		text = node.textContent, // Text to animate, defaults to element's content
+		duration = 0.2, // Animation duration
+		scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+=-' // Characters to use for scramble effect
 	} = {}
 ) {
+	// Safety check
 	if (!node || !text) {
 		return;
 	}
 
+	// Create a paused timeline for the scramble animation
 	let scramble = gsap.timeline({ paused: true });
 
+	// Setup the scramble animation
 	scramble.to(node, {
 		duration,
 		ease: 'none',
 		onUpdate() {
-			const progress = this.progress();
+			const progress = this.progress(); // Get current animation progress (0 to 1)
+			// Generate scrambled text
 			let decoded = text
 				.split('')
-				.map(char => 
-					char === ' ' ? ' ' : 
-					Math.random() > progress 
-						? scrambleChars[Math.floor(Math.random() * scrambleChars.length)]
-						: char
+				.map((char) =>
+					char === ' '
+						? ' ' // Preserve spaces
+						: Math.random() > progress // Randomly reveal characters based on progress
+							? scrambleChars[Math.floor(Math.random() * scrambleChars.length)]
+							: char
 				)
 				.join('');
-			node.innerText = decoded;
+			node.innerText = decoded; // Update the text
 		}
 	});
 
-	gsap.registerPlugin(ScrollTrigger);
-
+	// Create scroll trigger for the animation
 	ScrollTrigger.create({
 		trigger: node,
-		start: 'top 60%',
+		start: 'top 60%', // Start when element's top hits 60% of viewport
 		onEnter: () => {
-			scramble.restart();
+			scramble.restart(); // Play animation when scrolled into view
 		},
-		once: true
+		once: true // Only play once
 	});
 
+	// Cleanup function
 	return {
 		destroy() {
 			scramble.kill();
@@ -97,19 +118,22 @@ export function decodeAnimation(
 	};
 }
 
+// Reveal Animation: Fade and slide up effect
 export function revealAnimation(node: HTMLElement) {
+	// Animate from these values to element's natural position
 	gsap.from(node, {
-		opacity: 0,
-		y: 50, // Moves up from 50px
+		opacity: 0, // Start fully transparent
+		y: 50, // Start 50px below final position
 		duration: 1,
-		ease: 'power2.out',
+		ease: 'power2.out', // Smooth easing function
 		scrollTrigger: {
 			trigger: node,
-			start: 'top 80%',
-			toggleActions: 'play none none none'
+			start: 'top 80%', // Start when element's top hits 80% of viewport
+			toggleActions: 'play none none none' // Play once when triggered
 		}
 	});
 
+	// Cleanup function
 	return {
 		destroy() {
 			ScrollTrigger.getById(node)?.kill();

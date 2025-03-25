@@ -7,6 +7,8 @@
 
 	let { data } = $props();
 	let product = $derived(data.product as Product);
+
+	import { Eth } from '$lib/icons';
 </script>
 
 {#if product}
@@ -25,25 +27,29 @@
 			<div class="detail__head">
 				<h1 use:decodeAnimation class="detail__title">{product.productTitle}</h1>
 				<div class="detail__price">
-					<span class="numeric">{product.productPrice}</span> {product.currency}
+					<span class="numeric"
+						>{product.productPrice}
+						{product.currency}
+					</span>
+
+					<Eth />
 				</div>
 			</div>
 			<p class="detail__desc prose">
 				{product.description}
 			</p>
 
-			<button class="detail__btn btn">Buy token</button>
+			<button class="detail__btn btn">Buy NFT</button>
 
-			<ProductDetailTable 
+			<ProductDetailTable
 				author={product.author}
 				features={product.features}
 				editionNumber={product.editionNumber}
-				rarity={product.rarity}
-			/>
+				rarity={product.rarity} />
 		</div>
 	</section>
 {:else}
-	<div class="loading">Loading...</div>
+	<div class="loading">Loading</div>
 {/if}
 
 <style>
@@ -99,9 +105,12 @@
 	}
 
 	.detail__price {
-		font-variant-numeric: tabular-nums;
-		font-family: var(--font-fancy);
-		font-size: var(--step-4);
+		font-size: var(--step-3);
+		color: var(--primary-500);
+		display: flex;
+		flex-direction: row;
+		gap: var(--space-xs);
+		align-items: center;
 	}
 
 	.detail__desc {
