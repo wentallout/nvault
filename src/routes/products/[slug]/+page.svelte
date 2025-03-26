@@ -13,7 +13,9 @@
 
 <svelte:head>
 	<title>{product?.productTitle || 'NFT'} | NVault</title>
-	<meta name="description" content={product?.description || 'Explore this unique NFT on NVault marketplace.'} />
+	<meta
+		name="description"
+		content={product?.description || 'Explore this unique NFT on NVault marketplace.'} />
 </svelte:head>
 
 {#if product}
@@ -62,6 +64,12 @@
 		height: 100%;
 		display: grid;
 		place-items: center;
+	}
+
+	@media (min-width: 992px) {
+		.detail__thumbnail {
+			border-right: var(--brand-border);
+		}
 	}
 
 	.back {

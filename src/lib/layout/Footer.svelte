@@ -49,11 +49,14 @@
 	.footer__cta {
 		padding: var(--space-2xl) var(--space-m);
 		height: 100%;
+
+		padding-top: calc(var(--space-2xl) * 2);
 	}
 
 	.footer__copyright {
 		padding: var(--space-2xl) var(--space-m);
 		height: 100%;
+		padding-top: calc(var(--space-2xl) * 2);
 	}
 
 	@media (min-width: 992px) {
