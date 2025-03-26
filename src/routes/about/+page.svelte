@@ -24,7 +24,12 @@
 	];
 </script>
 
-<PageTitle pageTitle="About" />
+<svelte:head>
+	<title>About Us | NVault</title>
+	<meta name="description" content="Learn about NVault's mission to revolutionize the NFT marketplace with innovative digital art trading." />
+</svelte:head>
+
+<PageTitle pageTitle="About Us" />
 
 <section class="about" use:borderAnimation>
 	{#each abouts as { image, heading, description }}

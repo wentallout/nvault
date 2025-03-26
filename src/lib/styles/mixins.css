@@ -4,10 +4,14 @@
 	padding: 10px;
 }
 
-.text-trim {
+/* .text-trim {
 	text-box: trim-both cap alphabetic;
-}
+} */
 
 @define-mixin stylish-radius {
 	border-radius: 20% 0 20% 0;
+}
+
+@define-mixin text-trim {
+	text-box: trim-both cap alphabetic;
 }

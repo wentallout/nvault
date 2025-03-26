@@ -15,6 +15,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>NFTs Collection | NVault</title>
+	<meta name="description" content="Browse our curated collection of unique NFTs. Find rare digital art pieces and exclusive collectibles." />
+</svelte:head>
+
 <PageTitle pageTitle="NFTs" />
 
 <section class="products">

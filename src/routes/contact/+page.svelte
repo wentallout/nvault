@@ -3,7 +3,12 @@
 	import ContactForm from '$lib/sections/ContactForm.svelte';
 </script>
 
-<PageTitle pageTitle="Contact us" />
+<svelte:head>
+	<title>Contact Us | NVault</title>
+	<meta name="description" content="Get in touch with NVault's team for support, partnerships, or general inquiries about our NFT marketplace." />
+</svelte:head>
+
+<PageTitle pageTitle="Contact" />
 
 <section class="contact">
 	<div class="contact__title">

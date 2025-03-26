@@ -11,6 +11,11 @@
 	import { Eth } from '$lib/icons';
 </script>
 
+<svelte:head>
+	<title>{product?.productTitle || 'NFT'} | NVault</title>
+	<meta name="description" content={product?.description || 'Explore this unique NFT on NVault marketplace.'} />
+</svelte:head>
+
 {#if product}
 	<PageTitle pageTitle="NFT information" />
 

@@ -30,12 +30,12 @@
 <header>
 	<nav class="nav">
 		<div use:borderAnimation class="nav__left">
-			<a href="/" class="left__brand textTrim">
+			<a href="/" class="left__brand">
 				<Logo width="24" height="24" />
-				NVAULT
+				<div>NVAULT</div>
 			</a>
 		</div>
-		<div use:borderAnimation class="nav__mid">Khoa Nguyen / NFT Shop ©2025</div>
+		<div use:borderAnimation class="nav__mid">Khoa Nguyen / NFT Market ©2025</div>
 		<div use:borderAnimation class="nav__right">
 			<a class="nav__link" class:active={currentPath === '/'} href="/">Home</a>
 			<a class="nav__link" class:active={currentPath === '/products'} href="/products">Shop</a>
@@ -120,6 +120,8 @@
 		flex-direction: row;
 		align-items: center;
 		gap: var(--space-s);
+
+		@mixin text-trim;
 	}
 
 	.left__info {

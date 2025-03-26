@@ -1,5 +1,7 @@
 # NVault
 
+[Demo](https://nvault.netlify.app)
+
 A modern NFT marketplace built with SvelteKit 2, featuring smooth animations and a sleek design. This project demonstrates best practices in building a responsive, animated web application with modern web technologies.
 
 ## Features
@@ -20,7 +22,7 @@ A modern NFT marketplace built with SvelteKit 2, featuring smooth animations and
 - **UI/Animations**: GSAP 3.12
 - **Styling**: PostCSS
 - **Icons**: Unplugin Icons
-- **Testing**: 
+- **Testing**:
   - Vitest for unit testing
   - Playwright for E2E testing
 - **Deployment**: Netlify
@@ -35,22 +37,25 @@ A modern NFT marketplace built with SvelteKit 2, featuring smooth animations and
 ### Installation
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/yourusername/nvault.git
+git clone https://github.com/wentallout/nvault.git
 cd nvault
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
 
-4. Open http://localhost:5173 in your browser
+4. Open <http://localhost:5173> in your browser
 
 ## Available Scripts
 
@@ -87,11 +92,13 @@ nvault/
 NVault features three main types of animations:
 
 1. **Decode Animation** (`decodeAnimation`):
+
    - Matrix-style text scramble effect
    - Triggered on scroll
    - Customizable duration and characters
 
 2. **Reveal Animation** (`revealAnimation`):
+
    - Smooth fade-in and slide-up effect
    - Scroll-triggered
    - Used for section reveals
@@ -132,4 +139,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Design inspiration from [Studio Site](https://preview.studio.site/templates/18dO8G5WnG)
 - Color palette generated with [Hover Dev](https://www.hover.dev/css-color-palette-generator)
-
+- Favicon generated at: [favicon.io](https://favicon.io/favicon-converter)

@@ -70,8 +70,8 @@
 				mode="overlay"
 				result="out3"></feBlend
 			></filter
-		></defs
-	></svg>
+		></defs>
+</svg>
 
 <style>
 </style>
