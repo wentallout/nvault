@@ -1,8 +1,8 @@
-@define-mixin myMixin {
+/* @define-mixin myMixin {
 	color: blue;
 	font-weight: bold;
 	padding: 10px;
-}
+} */
 
 /* .text-trim {
 	text-box: trim-both cap alphabetic;
